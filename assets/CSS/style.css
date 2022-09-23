@@ -1,0 +1,36 @@
+html {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+.container {
+    display: flex;
+}
+
+h1 {
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.title {
+    width: 100%;
+    background-color: aquamarine;
+}
+
+
+.form-input {
+   width: 220px;
+   display: flex;
+   flex-direction: column;
+}
+
+.search-button {
+    width: 220px;
+    margin-top: 6px;
+}
