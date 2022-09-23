@@ -34,3 +34,13 @@ h2 {
     width: 220px;
     margin-top: 6px;
 }
+
+.result-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.five-day {
+    display: flex;
+    
+}
