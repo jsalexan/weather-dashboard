@@ -23,6 +23,10 @@ h2 {
     background-color: aquamarine;
 }
 
+.icon img {
+    height: 70px;
+    width: 70px;
+}
 
 .form-input {
    width: 220px;
