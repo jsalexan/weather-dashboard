@@ -45,6 +45,9 @@ h2 {
 }
 
 .five-day {
-    display: flex;
-    
+    display: flex;   
+}
+
+.weather-cont {
+    margin-left: 10px;
 }
