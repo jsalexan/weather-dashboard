@@ -6,6 +6,18 @@ let tempEl = document.getElementById("temp");
 let weatherDetailsEl = document.getElementById("weather-details");
 let humidityEl = document.getElementById("humidity");
 let windSpeedEl = document.getElementById("wind-speed");
+let pastSearches = document.getElementsByClassName("cities-holder");
+let searchHistory = localStorage.searchHistory ? JSON.parse(localStorage.searchHistory) : []
+
+function showSearchHistory () {
+	document.querySelector('.cities-holder').innerHTML=''
+	for( i=0; i<searchHistory.length; i++ )
+	document.querySelector('.cities-holder').innerHTML+=`
+	<li onclick="weatherResults('${searchHistory[i]}')"class="btn btn-secondary mb-1">${searchHistory[i]}</li>`
+}
+
+showSearchHistory();
+
 
 function getCity() {
   const newInput = document.getElementById("search-input");
@@ -15,6 +27,9 @@ function getCity() {
 function getWeather() {
   const city = getCity();
   console.log(city);
+  searchHistory.push(city)
+	localStorage.searchHistory=JSON.stringify(searchHistory)
+	showSearchHistory()
   let requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=63a94d459d52f9c7cb3b910e98b67749&units=imperial`;
   fetch(requestUrl).then(function (response) {
     if (response.ok) {
@@ -43,10 +58,12 @@ searchFormEl.addEventListener("submit", function (event) {
   getWeather();
 });
 
-icon.innerHTML = `<img src="icons/${weather.icon}.png"/>`;
+iconEl.innerHTML = `<img src="http://openweathermap.org/img/wn/${weather.icon}.png"/>`;
 
-temp.innerHTML = `${weather.temperature.value} ° <span>F</span>`;
+tempEl.innerHTML = `${weather.temperature.value} ° <span>F</span>`;
 
-description.innerHTML = weather.description;
+descriptionEl.innerHTML = weather.description;
 
-location.innerHTML = `${weather.city}, ${weather.country}`;
+locationEl.innerHTML = `${weather.city}, ${weather.country}`;
+
+currentDateEl = moment().format('LL');
