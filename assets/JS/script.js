@@ -8,46 +8,64 @@ let humidityEl = document.getElementById("humidity");
 let windSpeedEl = document.getElementById("wind-speed");
 let uviEl = document.getElementById("uv-index");
 let extendedForecastEl = document.getElementsByClassName("five-day");
-let pastSearches = document.getElementsByClassName("cities-holder");
-let date1 = document.getElementById('date1');
 
-// Checks if there's a previous search history and assigns it to the searchHistory variable. If there's no previous searchHistory array, it creates one with a list a cities
-let searchHistory = localStorage.searchHistory ? JSON.parse(localStorage.searchHistory) : ["New York","Chicago","Seattle", "Philadelphia", "Los Angeles", "San Francisco", "Austin", "Tampa"]
+let date1 = document.getElementById('date1');
+let historySearchBtn;
 
 // Sets the dates using Moment
 currentDateEl.innerHTML = moment().format("MMMM Do, YYYY")
-date1.innerHTML = moment().add(1, 'days').format('dddd, MM/DD')
-date2.innerHTML = moment().add(2, 'days').format('dddd, MM/DD')
-date3.innerHTML = moment().add(3, 'days').format('dddd, MM/DD')
-date4.innerHTML = moment().add(4, 'days').format('dddd, MM/DD')
-date5.innerHTML = moment().add(5, 'days').format('dddd, MM/DD')
-
-// Creates the function to use the searchHistory array to create buttons in the history section.
-// TODO: The buttons aren't working. Examine the getWeather function to figure out the correct code.
-function showSearchHistory () {  
-	document.querySelector('.cities-holder').innerHTML=''
-	for( i=0; i<searchHistory.length; i++ )
-	document.querySelector('.cities-holder').innerHTML+=`
-	<li onclick="getWeather('${searchHistory[i]}')"class="btn btn-secondary mb-1">${searchHistory[i]}</li>`
-  
-}
-showSearchHistory();
+date1.innerHTML = moment().add(1, 'days').format('dddd <br>MM/DD')
+date2.innerHTML = moment().add(2, 'days').format('dddd<br>MM/DD')
+date3.innerHTML = moment().add(3, 'days').format('dddd<br>MM/DD')
+date4.innerHTML = moment().add(4, 'days').format('dddd<br>MM/DD')
+date5.innerHTML = moment().add(5, 'days').format('dddd<br>MM/DD')
 
 // Grabs the user input and assigns it to a variable.
 function getCity() {
-  const newInput = document.getElementById("search-input");
-  return newInput.value;
+  let searchHistory = JSON.parse(localStorage.searchHistory) || "[]";
+  let city = document.getElementById("search-input").value;
+  return city;
 }
+
+function showSearchHistory() {
+  // Get the search history from localStorage
+  const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+  const historyContainer = document.querySelector(".cities-holder");
+  historyContainer.innerHTML = "";
+
+   // Only display the last 8 cities in the search history
+   const startIndex = Math.max(searchHistory.length - 8, 0);
+   const citiesToDisplay = searchHistory.slice(startIndex);
+ 
+   // Loop through the search history and create a button for each item:
+   for (let i = 0; i < citiesToDisplay.length; i++) {
+     let historyCity = citiesToDisplay[i];
+    const button = document.createElement("button");
+    button.textContent = historyCity;
+    button.classList.add("historySearchBtn");
+    // Pass the city name to the getWeather function when the button is clicked
+    button.addEventListener("click", function() {
+      getWeather(historyCity);
+    });
+    historyContainer.appendChild(button);
+  }
+}
+
+showSearchHistory();
+
+
 
 // Function to call the two APIs used. The first section gets the current weather, stores the search data (just the last 8) and populates some of the information to the page. The 2nd calls the one weather api and gets the lat and lon so we can get the extended forecast for the 5 day section.
 function getWeather() {
-  const city = getCity();
-  console.log(city);
-  searchHistory.push(city)
-  searchHistory.splice(8);
-	localStorage.searchHistory=JSON.stringify(searchHistory)
-	showSearchHistory()
-  let requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=63a94d459d52f9c7cb3b910e98b67749&units=imperial`;
+  let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+  let newCity = getCity();
+  console.log(newCity);
+  searchHistory.push(newCity)
+  searchHistory.splice
+  localStorage.searchHistory=JSON.stringify(searchHistory);
+  showSearchHistory();
+  let requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=63a94d459d52f9c7cb3b910e98b67749&units=imperial`;
   fetch(requestUrl).then(function (response) {
     if (response.ok) {
       return response.json().then(function (data) {
@@ -87,13 +105,15 @@ function getWeather() {
       });
     }
   });
-  
 }
+
 
 searchFormEl.addEventListener("submit", function (event) {
   event.preventDefault();
   getWeather();
 });
+
+
 
 
 
