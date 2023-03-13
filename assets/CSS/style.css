@@ -3,6 +3,10 @@ html {
     width: 100%;
     padding: 0;
 }
+body {
+    background-color: beige;
+}
+
 .container {
     display: flex;
 }
@@ -20,28 +24,34 @@ h2 {
 
 .title {
     width: 100%;
-    background-color: aquamarine;
+    background-color: none;
+}
+
+#location {
+    font-size: 25px;
+    font-weight: bold;
 }
 
 #icon img {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
 }
 
 .form-input {
    width: 220px;
    display: flex;
    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.search-form {
+
 }
 
 input:focus::placeholder {
     color: transparent;
   }
-  
-.search-button {
-    width: 220px;
-    margin-top: 6px;
-}
 
 .result-cont {
     display: flex;
@@ -54,4 +64,40 @@ input:focus::placeholder {
 
 .weather-cont {
     margin-left: 10px;
+}
+
+/* Removing margins from temp id */
+#temp, #humidity, #description {
+    margin: 0rem;
+}
+
+.fiveDay{
+    padding: 5px;
+    border-color: red;
+}
+
+.historySearchBtn {
+    background-color: rgb(237, 232, 156);
+    padding: 5px;
+    width: 220px;
+    height: 40px;
+}
+
+.search-btn {
+    background-color: goldenrod;
+    width: 220px;
+    height: 40px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.card {
+    border-style: groove;
+    border-color: rgb(50, 45, 46);
+    border-width: 3px;
+}
+
+.cities-holder {
+    border-color: transparent;
+    background-color: transparent;
 }

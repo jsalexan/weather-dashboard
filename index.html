@@ -18,13 +18,13 @@
     <div class="container">
 
     <div class="search-area">
-        <h2>Search for a city:</h2>
+        <h3 style="text-align: center;">Search for a city</h3>
         <form id="search-form" class="form w-100">
-            <input id="search-input" class="form-input w-20" type="text" placeholder="San Diego">
-            <button id="search-button">Search</button>
+            <input id="search-input" class="form-input w-20 city" type="text" placeholder="San Diego">
+            <button class="search-btn" id="search-button">Search</button>
             </form>
-
-        <div class="card cities-holder" style="width: 220px; height: 40rem;">
+            <h5 style="text-align: center;">Past Searches</h5>
+        <div class="card cities-holder" style="width: 220px; height: 21rem;">
            
         </div>
     </div>
@@ -32,56 +32,61 @@
    
 
 <aside class="result-cont">
-    <div class="card" style="width: 50rem; height: 20rem;">
+    <div class="card" style="width: 60rem; height: 17rem;">
 
       <div class="weather-cont">
-        <div id="location"><p>San Diego, CA</p></div>
-        <div id="current-date">September 26, 2022</div>
+        <div id="location">Sunnydale</div>
+        <div id="current-date">February 29, 2022</div>
         <div id="icon"><img src="./assets/images/Cloud-thin.png"></div>
         <div id="temp">78°</div>
         <div id="weather-details">Patchy clouds</div>
         <div id="humidity">Humidity: 80%</div>
         <div id="wind-speed">Wind Speed: 15mph</div>
-        <div id="uv-index">UV index: 23</div>
+        <div id="uv-index" style="padding-bottom: 6px;">UV index: 23</div>
       </div>
 <!-- Includes city name, date, icon, temp, wind, humidity, UV. -->
 
-<!-- Next group has 5 day forecast with: date, icon, temp, wind, humidity -->
+<!-- Next group has 5 day forecast with: date, icon, temp, desc, humidity -->
 
-      <div class="five-day">
-        <div class="card" id="day1" style="width: 10rem; height: 10rem;"> 
-          <h5 class="card-title" id="date1"></h5>
-          <div class="image" id="icon"></div>
-            <p class="card-text" id="temp"></p> 
-            <p class="card-text" id="humidity"></p>  
-        </div>
+<div class="five-day">
+  <div class="card fiveDay" id="day-0" style="width: 12rem; height: 13rem;padding: 6px">
+    <h5 class="card-title card-date" id="date1"></h5>
+    <div class="card-icon"></div>
+    <p class="card-temp" id="temp"></p>
+    <p class="card__description" id="description"></p>
+    <p class="card-hum" id="humidity"></p>
+  </div>
 
-        <div class="card" id="day2" style="width: 10rem; height: 10rem;"> 
-          <h5 class="card-title" id="date2">DAY</h5>
-          <div class="image" id="icon"></div>
-            <p class="card-text" id="temp"></p> 
-            <p class="card-text" id="humidity"></p>  
-        </div>
+  <div class="card fiveDay" id="day-1" style="width: 12rem; height: 13rem;padding: 6px">
+    <h5 class="card-title card-date" id="date2"></h5>
+    <div class="card-icon"></div>
+    <p class="card-temp" id="temp"></p>
+    <p class="card__description" id="description"></p>
+    <p class="card-hum" id="humidity"></p>
+  </div>
 
-        <div class="card" id="day3" style="width: 10rem; height: 10rem;"> 
-          <h5 class="card-title" id="date3">DAY</h5>
-          <div class="image" id="icon"></div>
-            <p class="card-text" id="temp"></p> 
-            <p class="card-text" id="humidity"></p>     
-        </div>
+  <div class="card fiveDay" id="day-2" style="width: 12rem; height: 13rem;padding: 6px">
+    <h5 class="card-title card-date" id="date3"></h5>
+    <div class="card-icon"></div>
+    <p class="card-temp" id="temp"></p>
+    <p class="card__description" id="description"></p>
+    <p class="card-hum" id="humidity"></p>
+  </div>
 
-        <div class="card" id="day4" style="width: 10rem; height: 10rem;"> 
-          <h5 class="card-title" id="date4">DAY</h5>
-          <div class="image" id="icon"></div>
-            <p class="card-text" id="temp"></p> 
-            <p class="card-text" id="humidity"></p>       
-        </div>
+  <div class="card fiveDay" id="day-3" style="width: 12rem; height: 13rem;padding: 6px">
+    <h5 class="card-title card-date" id="date4"></h5>
+    <div class="card-icon"></div>
+    <p class="card-temp" id="temp"></p>
+    <p class="card__description" id="description"></p>
+    <p class="card-hum" id="humidity"></p>
+  </div>
 
-        <div class="card" id="day5" style="width: 10rem; height: 10rem;"> 
-          <h5 class="card-title" id="date5">DAY</h5>
-          <div class="image" id="icon"></div>
-            <p class="card-text" id="temp"></p> 
-            <p class="card-text" id="humidity"></p>    
+  <div class="card fiveDay" id="day-4" style="width: 12rem; height: 13rem; padding: 6px;">
+    <h5 class="card-title card-date" id="date5"></h5>
+    <div class="card-icon"></div>
+    <p class="card-temp" id="temp"></p>
+    <p class="card__description" id="description"></p>
+    <p class="card-hum"  id="humidity"></p> 
         </div>
 </aside>
 

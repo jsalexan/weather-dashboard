@@ -20,7 +20,7 @@ date3.innerHTML = moment().add(3, "days").format("dddd<br>MM/DD");
 date4.innerHTML = moment().add(4, "days").format("dddd<br>MM/DD");
 date5.innerHTML = moment().add(5, "days").format("dddd<br>MM/DD");
 
-// Grabs the user input and assigns it to a variable.
+// Grabs the user input and assigns it to a letiable.
 function getCity() {
   let searchHistory = JSON.parse(localStorage.searchHistory) || "[]";
   let city = document.getElementById("search-input").value;
@@ -70,7 +70,7 @@ function getWeather(cityName) {
 
         iconEl.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png"/>`;
 
-        tempEl.innerHTML = `${Math.round(data.main.temp)} ° <span>F</span>`;
+        tempEl.innerHTML = `${Math.round(data.main.temp)}°F`;
 
         weatherDetailsEl.innerHTML = `${data.weather[0].description}`;
 
@@ -89,10 +89,23 @@ function getWeather(cityName) {
 
               .then(function (data) {
                 console.log(data);
-
-                uviEl.innerHTML = `UV index: ${data.current.uvi}`;
-
-                // extendedForecastEl.innerHTML =
+                for (let i = 0; i < data.daily.length; i++) {
+                  const dayData = data.daily[i];
+                
+                  // get references to the card elements
+                  const card = document.getElementById(`day-${i}`);
+                  const exIcon = card.querySelector(".card-icon");
+                  const exTemp = card.querySelector(".card-temp");
+                  const exDescription = card.querySelector(".card__description");
+                  const exHum = card.querySelector(".card-hum");
+                
+                  // populate the card elements with data from the API
+                  exIcon.innerHTML = `<img src="http://openweathermap.org/img/w/${dayData.weather[0].icon}.png">`;
+                  exTemp.textContent = `${Math.round(dayData.temp.day)}°F`;
+                  exDescription.textContent = dayData.weather[0].description;
+                  exHum.textContent = `Humidity: ${dayData.humidity}%`;
+                }
+             
               });
           }
         });
