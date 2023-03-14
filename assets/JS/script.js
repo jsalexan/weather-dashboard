@@ -113,6 +113,22 @@ function getWeather(cityName) {
     }
   });
 }
+// Phase two: add photo api
+// const settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://pexelsdimasv1.p.rapidapi.com/v1/search?query=seattle&locale=en-US&per_page=1&page=1",
+// 	"method": "GET",
+// 	"headers": {
+// 		"Authorization": "2YQnzwx13CRJtq6dhF7Hj5jFTtxAn7JdKcFdYg3Fc8Nz70GYgKPnJSUD",
+// 		"X-RapidAPI-Key": "e80b95076bmsha45acbf7c7c0d2cp1c74c9jsnddca0daf2fee",
+// 		"X-RapidAPI-Host": "PexelsdimasV1.p.rapidapi.com"
+// 	}
+// };
+
+// $.ajax(settings).done(function (response) {
+// 	console.log(response);
+// });
 
 searchFormEl.addEventListener("submit", function (event) {
   event.preventDefault();

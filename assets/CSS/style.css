@@ -56,6 +56,7 @@ input:focus::placeholder {
 .result-cont {
     display: flex;
     flex-direction: column;
+    margin-left: 5px;
 }
 
 .five-day {
@@ -74,6 +75,7 @@ input:focus::placeholder {
 .fiveDay{
     padding: 5px;
     border-color: red;
+    margin-left: -1px;
 }
 
 .historySearchBtn {
@@ -102,3 +104,12 @@ input:focus::placeholder {
     border-color: transparent;
     background-color: transparent;
 }
+
+#current-date {
+    font-size: 18px;
+}
+
+.card-title {
+    font-size: 18px;
+}
+
