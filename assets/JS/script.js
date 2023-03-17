@@ -22,7 +22,6 @@ date5.innerHTML = moment().add(5, "days").format("dddd<br>MM/DD");
 
 // Grabs the user input and assigns it to a letiable.
 function getCity() {
-  let searchHistory = JSON.parse(localStorage.searchHistory) || "[]";
   let city = document.getElementById("search-input").value;
   return city;
 }
@@ -113,6 +112,20 @@ function getWeather(cityName) {
     }
   });
 }
+
+// Call getWeather with a default city name when the app loads
+window.addEventListener("load", function() {
+  getWeather("New York");
+});
+
+
+searchFormEl.addEventListener("submit", function (event) {
+  event.preventDefault();
+  getWeather();
+});
+
+currentDateEl = moment().format("LL");
+
 // Phase two: add photo api
 // const settings = {
 // 	"async": true,
@@ -129,10 +142,3 @@ function getWeather(cityName) {
 // $.ajax(settings).done(function (response) {
 // 	console.log(response);
 // });
-
-searchFormEl.addEventListener("submit", function (event) {
-  event.preventDefault();
-  getWeather();
-});
-
-currentDateEl = moment().format("LL");
