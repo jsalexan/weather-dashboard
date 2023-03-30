@@ -113,3 +113,18 @@ input:focus::placeholder {
     font-size: 18px;
 }
 
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+#daily-cont {
+    width: 179px;
+}
+
+#weather-pic {
+    height: 269px;
+    width: 789px;
+    background-color:rgb(237, 232, 156);
+ 
+}
