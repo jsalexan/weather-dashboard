@@ -8,6 +8,7 @@ let humidityEl = document.getElementById("humidity");
 let windSpeedEl = document.getElementById("wind-speed");
 let uviEl = document.getElementById("uv-index");
 let extendedForecastEl = document.getElementsByClassName("five-day");
+let weatherPhotoEl = document.getElementById("weather-pic")
 
 let date1 = document.getElementById("date1");
 let historySearchBtn;
@@ -77,6 +78,15 @@ function getWeather(cityName) {
 
         humidityEl.innerHTML = `Humidity: ${data.main.humidity}%`;
         windSpeedEl.innerHTML = `Wind Speed: ${Math.round(data.wind.speed)}mph`;
+        if (data.weather[0].id === 802 || data.weather[0].id === 804 || data.weather[0].id === 801 || data.weather[0].id === 803) {
+          weatherPhotoEl.innerHTML = `<img src="/assets/images/broken clouds.png"/>`;
+        } else if (data.weather[0].id === 800) {
+          weatherPhotoEl.innerHTML = `<img src="/assets/images/1.png"/>`;
+        } else {
+          weatherPhotoEl.innerHTML = "";
+        }
+      
+      
 
         // 2nd API call
         let { lat, lon } = data.coord;

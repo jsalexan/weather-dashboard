@@ -124,7 +124,13 @@ input:focus::placeholder {
 
 #weather-pic {
     height: 269px;
-    width: 789px;
+    width: 750px;
     background-color:rgb(237, 232, 156);
+    border-bottom-style: groove;
+    border-bottom-color: rgb(50, 45, 46);
+    border-bottom-width: 3px;
+    border-left-style: groove;
+    border-left-color: rgb(50, 45, 46);
+    border-left-width: 3px;
  
 }
