@@ -82,6 +82,8 @@ function getWeather(cityName) {
           weatherPhotoEl.innerHTML = `<img src="/assets/images/broken clouds.png"/>`;
         } else if (data.weather[0].id === 800) {
           weatherPhotoEl.innerHTML = `<img src="/assets/images/1.png"/>`;
+        } else if (data.weather[0].id === 500 || data.weather[0].id === 501 || data.weather[0].id === 502 || data.weather[0].id === 503) {
+          weatherPhotoEl.innerHTML = `<img src="/assets/images/6.png"/>`;
         } else {
           weatherPhotoEl.innerHTML = "";
         }
