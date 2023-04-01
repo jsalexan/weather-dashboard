@@ -119,12 +119,13 @@ input:focus::placeholder {
 }
 
 #daily-cont {
-    width: 179px;
+    width: 225px;
 }
 
-#weather-pic {
-    height: 269px;
-    width: 750px;
+
+#weather-pic img {
+    height: 268px;
+    width: 760px;
     background-color:rgb(237, 232, 156);
     border-bottom-style: groove;
     border-bottom-color: rgb(50, 45, 46);
