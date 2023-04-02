@@ -81,7 +81,7 @@ function getWeather(cityName) {
 
         // Cloudy weather image  TODO: ADD MORE IMAGES FOR OVERCAST etc.
         if (data.weather[0].id === 802 || data.weather[0].id === 804 || data.weather[0].id === 801 || data.weather[0].id === 803) {
-          weatherPhotoEl.innerHTML = `<img src="/assets/images/BROKEN CLOUDS.png"/>`;
+          weatherPhotoEl.innerHTML = `<img src = /assets/images/BROKEN CLOUDS.png/>`; 
 
         // Clear sky weather image
         } else if (data.weather[0].id === 800) {
