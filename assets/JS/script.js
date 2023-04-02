@@ -81,11 +81,11 @@ function getWeather(cityName) {
 
         // Cloudy weather image  TODO: ADD MORE IMAGES FOR OVERCAST etc.
         if (data.weather[0].id === 802 || data.weather[0].id === 804 || data.weather[0].id === 801 || data.weather[0].id === 803) {
-          weatherPhotoEl.innerHTML = `<img src = "../assets/images/BROKEN CLOUDS.png">`; 
+          weatherPhotoEl.innerHTML = `<img src = "./assets/images/BROKEN-CLOUDS.png">`; 
 
         // Clear sky weather image
         } else if (data.weather[0].id === 800) {
-          weatherPhotoEl.innerHTML = `<img src="../assets/images/CLEAR SKY.png">`;
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/CLEAR-SKY.png">`;
 
         // Rainy weather image
         } else if (data.weather[0].id === 500 || data.weather[0].id === 501 || data.weather[0].id === 502 || data.weather[0].id === 503 || data.weather[0].id === 504 || data.weather[0].id === 511 || data.weather[0].id === 520 || data.weather[0].id === 521 || data.weather[0].id === 522 || data.weather[0].id === 531) {
