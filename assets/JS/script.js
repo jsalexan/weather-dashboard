@@ -85,7 +85,7 @@ function getWeather(cityName) {
 
         // Clear sky weather image
         } else if (data.weather[0].id === 800) {
-          weatherPhotoEl.innerHTML = `<img src="/assets/images/CLEAR SKY.png">`;
+          weatherPhotoEl.innerHTML = `<img src="https://github.com/jsalexan/weather-dashboard/blob/5a394f1a7174bc6dda7fef3b7437fbade3fbef45/assets/images/CLEAR%20SKY.png">`;
 
         // Rainy weather image
         } else if (data.weather[0].id === 500 || data.weather[0].id === 501 || data.weather[0].id === 502 || data.weather[0].id === 503 || data.weather[0].id === 504 || data.weather[0].id === 511 || data.weather[0].id === 520 || data.weather[0].id === 521 || data.weather[0].id === 522 || data.weather[0].id === 531) {
