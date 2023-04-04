@@ -93,33 +93,42 @@ document.addEventListener("DOMContentLoaded", function () {
                   windSpeedEl.innerHTML = `Wind Speed: ${Math.round(
                     data.current.wind_speed
                   )}mph`;
-                  
-                  let uvEl = document.getElementById("uv-level");
-uvEl.innerHTML = `${Math.round(data.current.uvi)}`;
-// Get warning colors for UV levels
-uvEl.classList.remove('low', 'moderate', 'high', 'very-high', 'extreme');
 
-let uvLevel = Math.round(data.current.uvi);
-if (uvLevel < 3) {
-  uvEl.classList.add('low');
-} else if (uvLevel < 6) {
-  uvEl.classList.add('moderate');
-} else if (uvLevel < 8) {
-  uvEl.classList.add('high');
-} else if (uvLevel < 11) {
-  uvEl.classList.add('very-high');
-} else {
-  uvEl.classList.add('extreme');
-}
+                  let uvEl = document.getElementById("uv-level");
+                  uvEl.innerHTML = `${Math.round(data.current.uvi)}`;
+                  // Get warning colors for UV levels
+                  uvEl.classList.remove(
+                    "low",
+                    "moderate",
+                    "high",
+                    "very-high",
+                    "extreme"
+                  );
+
+                  let uvLevel = Math.round(data.current.uvi);
+                  if (uvLevel < 3) {
+                    uvEl.classList.add("low");
+                  } else if (uvLevel < 6) {
+                    uvEl.classList.add("moderate");
+                  } else if (uvLevel < 8) {
+                    uvEl.classList.add("high");
+                  } else if (uvLevel < 11) {
+                    uvEl.classList.add("very-high");
+                  } else {
+                    uvEl.classList.add("extreme");
+                  }
 
                   // Cloudy weather image  TODO: ADD MORE IMAGES FOR OVERCAST etc.
                   if (
                     data.current.weather[0].id === 802 ||
-                    data.current.weather[0].id === 804 ||
                     data.current.weather[0].id === 801 ||
                     data.current.weather[0].id === 803
                   ) {
                     weatherPhotoEl.innerHTML = `<img src = "./assets/images/BROKEN-CLOUDS.png">`;
+
+                    // Overcast image
+                  } else if (data.current.weather[0].id === 804) {
+                    weatherPhotoEl.innerHTML = `<img src="./assets/images/OVERCAST.png">`;
 
                     // Clear sky weather image
                   } else if (data.current.weather[0].id === 800) {
