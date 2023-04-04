@@ -14,7 +14,7 @@
   <br><br>
   This work represents my first time working with APIs and it was really interesting figuring out how to capture and sort the returning data. Having more experience with other APIs, after working on the Dog Town app, I find every API is its own challenge.
   <br><br>
-  There is much I'd like to do in the future. I have begun working on bringing in another API to render images to the page based either on the city name or the weather conditions (haven't decided which yet). I'd also like to add an accordian feature so you can get more details on the weather, if needed. It would be helpful if the site was responsive, and , alas it is not. That should be fixed. Last, it bothers me that the data is by city name only. I want to add a geolocator to search by city and state so the user gets the city intended, i.e. Portland, Maine vs. Portland, Oregon.  
+  There is much I'd like to do in the future. I'd also like to add an accordian feature so you can get more details on the weather, if needed. It would be helpful if the site was responsive and, alas, it is not. That should be fixed. Last, it bothers me that the data is by city name only. I want to add a geolocator to search by city and state so the user gets the city intended, i.e. Portland, Maine vs. Portland, Oregon.  
   <br><br>
 
 ## Table of Contents
@@ -47,7 +47,7 @@
 <br><br>
   
 
-  ![Screen capture.](/assets/images/Screenshot%20(342).png)
+  ![Screen capture.](/assets/images/Screenshot%20(373).png)
   <br><br>
 
   ## [Credits](#table-of-contents) 
