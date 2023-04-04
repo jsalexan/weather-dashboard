@@ -8,7 +8,7 @@ let humidityEl = document.getElementById("humidity");
 let windSpeedEl = document.getElementById("wind-speed");
 let uviEl = document.getElementById("uv-index");
 let extendedForecastEl = document.getElementsByClassName("five-day");
-let weatherPhotoEl = document.getElementById("weather-pic")
+let weatherPhotoEl = document.getElementById("weather-pic");
 
 let date1 = document.getElementById("date1");
 let historySearchBtn;
@@ -80,71 +80,116 @@ function getWeather(cityName) {
         windSpeedEl.innerHTML = `Wind Speed: ${Math.round(data.wind.speed)}mph`;
 
         // Cloudy weather image  TODO: ADD MORE IMAGES FOR OVERCAST etc.
-        if (data.weather[0].id === 802 || data.weather[0].id === 804 || data.weather[0].id === 801 || data.weather[0].id === 803) {
-          weatherPhotoEl.innerHTML = `<img src = "./assets/images/BROKEN-CLOUDS.png">`; 
+        if (
+          data.weather[0].id === 802 ||
+          data.weather[0].id === 804 ||
+          data.weather[0].id === 801 ||
+          data.weather[0].id === 803
+        ) {
+          weatherPhotoEl.innerHTML = `<img src = "./assets/images/BROKEN-CLOUDS.png">`;
 
-        // Clear sky weather image
+          // Clear sky weather image
         } else if (data.weather[0].id === 800) {
           weatherPhotoEl.innerHTML = `<img src="./assets/images/CLEAR-SKY.png">`;
 
-        // Rainy weather image
-        } else if (data.weather[0].id === 500 || data.weather[0].id === 501 || data.weather[0].id === 502 || data.weather[0].id === 503 || data.weather[0].id === 504 || data.weather[0].id === 511 || data.weather[0].id === 520 || data.weather[0].id === 521 || data.weather[0].id === 522 || data.weather[0].id === 531) {
+          // Rainy weather image
+        } else if (
+          data.weather[0].id === 500 ||
+          data.weather[0].id === 501 ||
+          data.weather[0].id === 502 ||
+          data.weather[0].id === 503 ||
+          data.weather[0].id === 504 ||
+          data.weather[0].id === 511 ||
+          data.weather[0].id === 520 ||
+          data.weather[0].id === 521 ||
+          data.weather[0].id === 522 ||
+          data.weather[0].id === 531
+        ) {
           weatherPhotoEl.innerHTML = `<img src="./assets/images/RAIN.png">`;
 
-        // DRIZZLE WEATHER IMAGE
-        } else if (data.weather[0].id === 300 || data.weather[0].id === 301 || data.weather[0].id === 302 || data.weather[0].id === 310 || data.weather[0].id === 311 || data.weather[0].id === 312 || data.weather[0].id === 313 || data.weather[0].id === 314 || data.weather[0].id === 321) {
+          // DRIZZLE WEATHER IMAGE
+        } else if (
+          data.weather[0].id === 300 ||
+          data.weather[0].id === 301 ||
+          data.weather[0].id === 302 ||
+          data.weather[0].id === 310 ||
+          data.weather[0].id === 311 ||
+          data.weather[0].id === 312 ||
+          data.weather[0].id === 313 ||
+          data.weather[0].id === 314 ||
+          data.weather[0].id === 321
+        ) {
           weatherPhotoEl.innerHTML = `<img src="./assets/images/DRIZZLE.png">`;
 
-        // Snowy weather image  
-        } else if (data.weather[0].id === 600 || data.weather[0].id === 601 || data.weather[0].id === 602 || data.weather[0].id === 611 || data.weather[0].id === 612 || data.weather[0].id === 613 || data.weather[0].id === 615 || data.weather[0].id === 616 || data.weather[0].id === 620 || data.weather[0].id === 621 || data.weather[0].id === 622) {
+          // Snowy weather image
+        } else if (
+          data.weather[0].id === 600 ||
+          data.weather[0].id === 601 ||
+          data.weather[0].id === 602 ||
+          data.weather[0].id === 611 ||
+          data.weather[0].id === 612 ||
+          data.weather[0].id === 613 ||
+          data.weather[0].id === 615 ||
+          data.weather[0].id === 616 ||
+          data.weather[0].id === 620 ||
+          data.weather[0].id === 621 ||
+          data.weather[0].id === 622
+        ) {
           weatherPhotoEl.innerHTML = `<img src="./assets/images/SNOW.png">`;
 
-        // THUNDERSTORM IMAGE
-        } else if (data.weather[0].id === 200 || data.weather[0].id === 201 || data.weather[0].id === 202 || data.weather[0].id === 210 || data.weather[0].id === 211 || data.weather[0].id === 212 || data.weather[0].id === 221 || data.weather[0].id === 230) {
+          // THUNDERSTORM IMAGE
+        } else if (
+          data.weather[0].id === 200 ||
+          data.weather[0].id === 201 ||
+          data.weather[0].id === 202 ||
+          data.weather[0].id === 210 ||
+          data.weather[0].id === 211 ||
+          data.weather[0].id === 212 ||
+          data.weather[0].id === 221 ||
+          data.weather[0].id === 230
+        ) {
           weatherPhotoEl.innerHTML = `<img src="./assets/images/THUNDERSTORM.png">`;
 
-        // MIST IMAGE
+          // MIST IMAGE
         } else if (data.weather[0].id === 701) {
           weatherPhotoEl.innerHTML = `<img src="./assets/images/MIST.png">`;
 
-        // SMOKE IMAGE
-      } else if (data.weather[0].id === 711) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/SMOKE.png">`;
+          // SMOKE IMAGE
+        } else if (data.weather[0].id === 711) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/SMOKE.png">`;
 
-        // HAZE IMAGE
-      } else if (data.weather[0].id === 721) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/HAZE.png">`;
+          // HAZE IMAGE
+        } else if (data.weather[0].id === 721) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/HAZE.png">`;
 
-        // DUST IMAGE
-      } else if (data.weather[0].id === 731 || data.weather[0].id === 761) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/DUST.png">`;
+          // DUST IMAGE
+        } else if (data.weather[0].id === 731 || data.weather[0].id === 761) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/DUST.png">`;
 
-        // FOG IMAGE
-      } else if (data.weather[0].id === 741) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/FOG.png">`;
+          // FOG IMAGE
+        } else if (data.weather[0].id === 741) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/FOG.png">`;
 
-      // SAND IMAGE
-      } else if (data.weather[0].id === 751) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/SAND.png">`;
+          // SAND IMAGE
+        } else if (data.weather[0].id === 751) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/SAND.png">`;
 
-      // ASH IMAGE
-      } else if (data.weather[0].id === 762) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/ASH.png">`;
+          // ASH IMAGE
+        } else if (data.weather[0].id === 762) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/ASH.png">`;
 
-      // SQUALL IMAGE
-      } else if (data.weather[0].id === 771) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/SQUALLS.png">`;
+          // SQUALL IMAGE
+        } else if (data.weather[0].id === 771) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/SQUALLS.png">`;
 
-      // TORNADO IMAGE
-      } else if (data.weather[0].id === 781) {
-        weatherPhotoEl.innerHTML = `<img src="./assets/images/TORNADO.png">`;
+          // TORNADO IMAGE
+        } else if (data.weather[0].id === 781) {
+          weatherPhotoEl.innerHTML = `<img src="./assets/images/TORNADO.png">`;
 
-      // Render yellow rectangle.
+          // Render yellow rectangle.
         } else {
           weatherPhotoEl.innerHTML = "";
         }
-      
-      
 
         // 2nd API call
         let { lat, lon } = data.coord;
@@ -158,21 +203,21 @@ function getWeather(cityName) {
                 console.log(data);
                 for (let i = 0; i < data.daily.length; i++) {
                   const dayData = data.daily[i];
-                
+
                   // get references to the card elements
                   const card = document.getElementById(`day-${i}`);
                   const exIcon = card.querySelector(".card-icon");
                   const exTemp = card.querySelector(".card-temp");
-                  const exDescription = card.querySelector(".card__description");
+                  const exDescription =
+                    card.querySelector(".card__description");
                   const exHum = card.querySelector(".card-hum");
-                
+
                   // populate the card elements with data from the API
                   exIcon.innerHTML = `<img src="http://openweathermap.org/img/w/${dayData.weather[0].icon}.png">`;
                   exTemp.textContent = `${Math.round(dayData.temp.day)}°F`;
                   exDescription.textContent = dayData.weather[0].description;
                   exHum.textContent = `Humidity: ${dayData.humidity}%`;
                 }
-             
               });
           }
         });
@@ -182,10 +227,9 @@ function getWeather(cityName) {
 }
 
 // Call getWeather with a default city name when the app loads
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   getWeather("New York");
 });
-
 
 searchFormEl.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -194,19 +238,3 @@ searchFormEl.addEventListener("submit", function (event) {
 
 currentDateEl = moment().format("LL");
 
-// Phase two: add photo api
-// const settings = {
-// 	"async": true,
-// 	"crossDomain": true,
-// 	"url": "https://pexelsdimasv1.p.rapidapi.com/v1/search?query=seattle&locale=en-US&per_page=1&page=1",
-// 	"method": "GET",
-// 	"headers": {
-// 		"Authorization": "2YQnzwx13CRJtq6dhF7Hj5jFTtxAn7JdKcFdYg3Fc8Nz70GYgKPnJSUD",
-// 		"X-RapidAPI-Key": "e80b95076bmsha45acbf7c7c0d2cp1c74c9jsnddca0daf2fee",
-// 		"X-RapidAPI-Host": "PexelsdimasV1.p.rapidapi.com"
-// 	}
-// };
-
-// $.ajax(settings).done(function (response) {
-// 	console.log(response);
-// });
